@@ -19,7 +19,7 @@ public class AllStories extends AbstractStoryConfiguration {
 	@Override
 	public List<String> storyPaths() {
 		List<String> paths = new StoryFinder().findPaths(
-				CodeLocations.codeLocationFromClass(this.getClass()), "**/stories/Login.story", "");
+				CodeLocations.codeLocationFromClass(this.getClass()), "**/stories/*.story", "");
 		return paths;
 	}
 }

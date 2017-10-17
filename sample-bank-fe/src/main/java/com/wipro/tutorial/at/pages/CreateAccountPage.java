@@ -1,9 +1,8 @@
 package com.wipro.tutorial.at.pages;
 
+import com.wipro.tutorial.at.configuration.pageobjects.PageObject;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import com.wipro.tutorial.at.configuration.pageobjects.PageObject;
 
 @PageObject
 public class CreateAccountPage extends AbstractPage {
@@ -19,7 +18,11 @@ public class CreateAccountPage extends AbstractPage {
 	
 	public CreateAccountPage cpf (String cpf) {
 		cpfInput.clear();
-		cpfInput.sendKeys(cpf);
+		for(char c : cpf.toCharArray())
+		{
+			String cpfAux = String.valueOf(c);
+			cpfInput.sendKeys(cpfAux);
+		}
 		return this;
 	}
 	

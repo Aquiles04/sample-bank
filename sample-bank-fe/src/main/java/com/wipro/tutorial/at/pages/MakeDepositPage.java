@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 public class MakeDepositPage extends AbstractPage{
 
     @FindBy(id="targetAccount")
-    private WebElement Select;
+    private WebElement dropdownSelect;
 
     @FindBy(id = "ammount")
     private WebElement amountInput;
@@ -23,9 +23,9 @@ public class MakeDepositPage extends AbstractPage{
     public MakeDepositPage cpf (String cpf) {
         //Select drpAccount = new Select(driver.findElement(By.id("targetAccount")));
         //drpAccount.selectByVisibleText("17891023564");
-        Select dropdown = new Select(Select);
-        dropdown.getOptions().get(1).click();
-        dropdown.selectByVisibleText("12345678910");
+        Select dropdown = new Select(dropdownSelect);
+        //dropdown.getOptions().get(1).click();
+        dropdown.selectByVisibleText(cpf);
 
         //cpfInput.clear();
         //cpfInput.sendKeys(cpf);

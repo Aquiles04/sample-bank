@@ -20,8 +20,8 @@ And clicks on deposit button
 Then the system should show the message <messageValidation>
 
 Examples:
-|cpfValue      | valueOfDeposit |messageValidation
-| 12345678910  | 1000	        | Operation completed with success
-| 11111111111  | 500	        | The CPF information is invalid
-| 12345678910  | 0   	        | The ammount is invalid for the operation
+|cpfValue              | valueOfDeposit |messageValidation
+| 12345678910          | 1000	        | Operation completed with success
+| -- Select Account -- | 500	        | The CPF information is invalid
+| 12345678910          | 0   	        | The ammount is invalid for the operation
 
