@@ -15,7 +15,9 @@ Scenario: Open Withdraw Page
 When User clicks on menu Withdraw
 
 Scenario: Open AddAccount Page
-When User has an <accountNumber> and a positive <balance>
+When User has an <accountNumber>
+And clicks on get information button
+Then get the balance value of <balance>
 
 Scenario:Withdraw
 
@@ -24,6 +26,10 @@ When the account manager wants to make a withdraw with the value of <valueOfWith
 And <valueOfWithdraw> is equal to or less than amount of <balanceAmount>
 And clicks on withdraw button
 Then the system should show the message <messageValidation>.
+
+!--Scenario:Check Balance
+!--Then check if <balance> is correct
+
 
 Examples:
 | cpfValue              | valueOfWithdraw  | balanceAmount | messageValidation                         |

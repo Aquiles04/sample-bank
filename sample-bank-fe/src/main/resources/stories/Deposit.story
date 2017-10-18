@@ -19,6 +19,9 @@ When the account manager wants to make a deposit with the value of <valueOfDepos
 And clicks on deposit button
 Then the system should show the message <messageValidation>
 
+!--Scenario:Check Balance
+!--Then check if <balance> is correct
+
 Examples:
 |cpfValue              | valueOfDeposit |messageValidation
 | 12345678910          | 1000	        | Operation completed with success
