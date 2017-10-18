@@ -35,6 +35,7 @@ public class WithdrawSteps extends AbstractSteps{
     @When("$valueOfWithdraw is equal to or less than amount of $balanceAmount")
     public void withdrawButton(@Named("valueOfWithdraw") String valueOfWithdraw, @Named("balanceAmount") String balanceAmount) {
 
+        if()
         withdrawPage.amount(valueOfWithdraw);
         accountInformationPage.getBalanceInfo(balanceAmount);
 

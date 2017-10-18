@@ -7,6 +7,9 @@ I want to be able to choose the two existing accounts
 Input the amount I want to transfer
 Ensuring that after I submit the request I check the return message saying that the operation was successful
 
+GivenStories: stories/Login.story
+GivenStories: stories/CreateAccount.story
+GivenStories: stories/Deposit.story
 
 Scenario:Transfer
 
