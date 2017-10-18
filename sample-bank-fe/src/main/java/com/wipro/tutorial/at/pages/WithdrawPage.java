@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 @PageObject
-public class MakeDepositPage extends AbstractPage{
+public class WithdrawPage extends AbstractPage {
 
     @FindBy(id="targetAccount")
     private WebElement dropdownSelect;
@@ -14,35 +14,29 @@ public class MakeDepositPage extends AbstractPage{
     @FindBy(id = "ammount")
     private WebElement amountInput;
 
-    @FindBy (xpath = "//*[@value='Deposit']")
-    private WebElement makeDepositButton;
+    @FindBy (xpath = "//*[@value='Withdraw']")
+    private WebElement withdrawButton;
 
     @FindBy (id = "sb-return-message")
     private WebElement returnMsg;
 
-    public MakeDepositPage cpf (String cpf) {
-        //Select drpAccount = new Select(driver.findElement(By.id("targetAccount")));
-        //drpAccount.selectByVisibleText("17891023564");
+    public WithdrawPage cpf (String cpf) {
+
         Select dropdown = new Select(dropdownSelect);
-        //dropdown.getOptions().get(1).click();
         dropdown.selectByVisibleText(cpf);
 
-        //cpfInput.clear();
-        //cpfInput.sendKeys(cpf);
         return this;
     }
 
-    public MakeDepositPage amount (String amount) {
-        //Select drpAccount = new Select(driver.findElement(By.id("targetAccount")));
-        //drpAccount.selectByVisibleText("17891023564");
-        //Select depositAccount = new Select();
+    public WithdrawPage amount (String amount) {
+
         amountInput.clear();
         amountInput.sendKeys(amount);
         return this;
     }
 
-    public MakeDepositPage clickMakeDeposit() {
-        makeDepositButton.click();
+    public WithdrawPage clickWithdraw() {
+        withdrawButton.click();
         return this;
     }
 
