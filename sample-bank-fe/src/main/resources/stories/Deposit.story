@@ -20,7 +20,7 @@ And clicks on deposit button
 Then the system should show the message <messageValidation>
 
 !--Scenario:Check Balance
-!--Then check if <balance> is correct
+!--Then check if <balance> is equal <valueOfDeposit>
 
 Examples:
 |cpfValue              | valueOfDeposit |messageValidation

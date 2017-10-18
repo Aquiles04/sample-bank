@@ -14,7 +14,7 @@ GivenStories: stories/Deposit.story
 Scenario: Open Withdraw Page
 When User clicks on menu Withdraw
 
-Scenario: Open AddAccount Page
+Scenario: Open Account Information Page
 When User has an <accountNumber>
 And clicks on get information button
 Then get the balance value of <balance>
@@ -27,8 +27,9 @@ And <valueOfWithdraw> is equal to or less than amount of <balanceAmount>
 And clicks on withdraw button
 Then the system should show the message <messageValidation>.
 
+!--Fazer
 !--Scenario:Check Balance
-!--Then check if <balance> is correct
+!--Then get the balance value of <balance> and compare with value of <balance> before withdraw
 
 
 Examples:
