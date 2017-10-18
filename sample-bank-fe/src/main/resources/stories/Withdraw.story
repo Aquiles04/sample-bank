@@ -23,9 +23,10 @@ Scenario:Withdraw
 
 Given that a customer has a <cpfValue>
 When the account manager wants to make a withdraw with the value of <valueOfWithdraw>
-And <valueOfWithdraw> is equal to or less than amount of <balanceAmount>
+And <valueOfWithdraw> is equal to or less than amount of <balance>
 And clicks on withdraw button
-Then the system should show the message <messageValidation>.
+Then system should show the message <messageValidation> for withdraw
+!--Then <valueOfWithdraw> is equal to or less than amount of <balance>
 
 !--Fazer
 !--Scenario:Check Balance
@@ -33,7 +34,7 @@ Then the system should show the message <messageValidation>.
 
 
 Examples:
-| cpfValue              | valueOfWithdraw  | balanceAmount | messageValidation                         |
+| cpfValue              | valueOfWithdraw  | balance       | messageValidation                         |
 | 12345678910           | 500	           | 1000	       | Operation completed with success          |
 | -- Select Account --  | 500              | 500           | The CPF information is invalid            |
 | 12345678910           | 1500             | 1000          | The ammount is invalid for the operation  |

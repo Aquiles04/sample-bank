@@ -1,5 +1,6 @@
 package com.wipro.tutorial.at.steps;
 
+import com.wipro.tutorial.at.pages.AccountInformationPage;
 import com.wipro.tutorial.at.pages.WithdrawPage;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Named;
@@ -15,6 +16,9 @@ public class WithdrawSteps extends AbstractSteps{
     @Autowired
     private WithdrawPage withdrawPage;
 
+    @Autowired
+    private AccountInformationPage accountInformationPage;
+
     @Given("that a customer has a $cpfValue")
     public void userFillsCPF(@Named("cpfValue") String cpfValue ) {
 
@@ -27,10 +31,12 @@ public class WithdrawSteps extends AbstractSteps{
         withdrawPage.amount(valueOfWithdraw);
     }
 
+    // Meio confuso aqui como fazer a validação ...
     @When("$valueOfWithdraw is equal to or less than amount of $balanceAmount")
     public void withdrawButton(@Named("valueOfWithdraw") String valueOfWithdraw, @Named("balanceAmount") String balanceAmount) {
 
         withdrawPage.amount(valueOfWithdraw);
+        accountInformationPage.getBalanceInfo(balanceAmount);
 
     }
 
@@ -39,8 +45,10 @@ public class WithdrawSteps extends AbstractSteps{
         withdrawPage.clickWithdraw();
     }
 
-    @Then("the system should show the message $messageValidation")
+    @Then("system should show the message $messageValidation for withdraw")
     public void assertCreateAccountReturnMessage(@Named("messageValidation") String message) {
         Assert.assertEquals(message, withdrawPage.getReturnMsg());
     }
+
+
 }
