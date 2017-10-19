@@ -17,3 +17,4 @@ Examples:
 |  123	   		| The CPF information is invalid   |
 |12345678910    | Operation completed with success |
 |12345678910    | Account already exists 		   |
+|01234567899    | Operation completed with success |

@@ -27,7 +27,6 @@ public class TransferPage extends AbstractPage {
 
         Select dropdown = new Select(dropdownSelectSourceAccount);
         dropdown.selectByVisibleText(sourceAccount);
-
         return this;
     }
 
@@ -35,8 +34,8 @@ public class TransferPage extends AbstractPage {
 
         Select dropdown = new Select(dropdownSelectTargetAccount);
         dropdown.selectByVisibleText(targetAccount);
-
         return this;
+
     }
 //
     public TransferPage amount (String amount) {

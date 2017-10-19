@@ -11,20 +11,22 @@ GivenStories: stories/Login.story
 GivenStories: stories/CreateAccount.story
 GivenStories: stories/Deposit.story
 
+Scenario: Open Withdraw Page
+When User clicks on menu <Transfer>
+
 Scenario:Transfer
 
-Given that a cardholder has a <accountNumber>
-And a balance of <valueOfBalance>
-And want to select a second acoount <statusAccount> to make a transfer
-When the cardholder input the value of <valueOfTransfer>
+Given that a cardholder has a valid account <accountNumber>
+When he wants to select a second account <accountNumber2> to make a transfer
+And the cardholder input the value of <valueOfTransfer>
 And clicks on transfer button
-Then the system should show the message <messageValidation>.
+Then the system should show the transfer message <messageValidation>
 
 Examples:
-| accountNumber         | valueOfBalance | valueOfTrasfer | messageValidation                                                                     |
-| 12345678910           | 2000	         | 500	          | Operation completed with success                                                      |
-| -- Select Account --  | 2000	         | 500	          | The CPF information is invalid                                                        |
-| 12345678910	        | 2000	         | 1000	          | The requested loan ammount exceeds the available credit limit                         |
-| 12345678910	        | 1500	         | 500  	      | Insufficient balance in account for the loan operation. Minimum of $2000 is required  |
-| 12345678910	        | 3000	         | Null           | The ammount is invalid for the operation should be greater than 0                     |
+| accountNumber         | initialBalance | accountNumber2   | valueOfTrasfer | messageValidation                                                                     |
+| 12345678910           | 100000	     | 01234567899      | 50000	         | Operation completed with success                                                      |
+| -- Select Account --  | 100000	     | 01234567899      | 50000	         | The CPF information is invalid                                                        |
+| 12345678910	        | 100000	     | 01234567899      | 200000         | The requested loan ammount exceeds the available credit limit                         |
+| 12345678910	        | 100000	     | 01234567899      | 5000000  	     | Insufficient balance in account for the loan operation. Minimum of $2000 is required  |
+| 12345678910	        | 100000	     | 01234567899      | Null           | The ammount is invalid for the operation should be greater than 0                     |
 
