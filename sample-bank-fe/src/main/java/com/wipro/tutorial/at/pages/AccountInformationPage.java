@@ -9,8 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 public class AccountInformationPage extends AbstractPage {
 
 
-
-    @FindBy(id="ownerCpfSelect")
+    @FindBy(id = "ownerCpfSelect")
     private WebElement dropdownSelect;
 
     @FindBy (className = "sb-button")
@@ -22,17 +21,16 @@ public class AccountInformationPage extends AbstractPage {
     @FindBy (id = "sb-return-message")
     private WebElement returnMsg;
 
-    public AccountInformationPage selectAccountInfo(String cpf){
+    public AccountInformationPage selectAccountInfo(String accountNumber)
+    {
         Select dropdown = new Select(dropdownSelect);
-        dropdown.selectByVisibleText(cpf);
-
+        dropdown.selectByVisibleText(accountNumber);
         return this;
     }
 
-    //Isso tem que acontecer apos o click do botao
     public AccountInformationPage getBalanceInfo(String balance){
 
-        getBalance.sendKeys(balance);
+        getBalance.getText();
         return this;
     }
 

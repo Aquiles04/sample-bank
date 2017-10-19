@@ -8,7 +8,8 @@ import org.openqa.selenium.support.ui.Select;
 @PageObject
 public class DepositPage extends AbstractPage{
 
-    @FindBy(id="targetAccount")
+//    @FindBy(xpath="//*[@id='targetAccount']")
+    @FindBy(id = "targetAccount")
     private WebElement dropdownSelect;
 
     @FindBy(id = "ammount")
@@ -20,15 +21,13 @@ public class DepositPage extends AbstractPage{
     @FindBy (id = "sb-return-message")
     private WebElement returnMsg;
 
-    public DepositPage cpf (String cpf) {
+    public DepositPage cpf(String accountValue) {
         //Select drpAccount = new Select(driver.findElement(By.id("targetAccount")));
         //drpAccount.selectByVisibleText("17891023564");
         Select dropdown = new Select(dropdownSelect);
         //dropdown.getOptions().get(1).click();
-        dropdown.selectByVisibleText(cpf);
+        dropdown.selectByVisibleText(accountValue);
 
-        //cpfInput.clear();
-        //cpfInput.sendKeys(cpf);
         return this;
     }
 

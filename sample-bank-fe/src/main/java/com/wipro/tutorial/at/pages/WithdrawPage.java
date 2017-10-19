@@ -20,10 +20,10 @@ public class WithdrawPage extends AbstractPage {
     @FindBy (id = "sb-return-message")
     private WebElement returnMsg;
 
-    public WithdrawPage cpf (String cpf) {
+    public WithdrawPage accountNumber (String accountNumber) {
 
         Select dropdown = new Select(dropdownSelect);
-        dropdown.selectByVisibleText(cpf);
+        dropdown.selectByVisibleText(accountNumber);
 
         return this;
     }

@@ -14,17 +14,14 @@ Scenario: Open Deposit Page
 When User clicks on menu Deposit
 
 Scenario: Make deposit
-When a cardholder has a <cpfValue>
+When a cardholder has a <accountValue>
 When the account manager wants to make a deposit with the value of <valueOfDeposit>
 And clicks on deposit button
 Then the system should show the message <messageValidation>
 
-!--Scenario:Check Balance
-!--Then check if <balance> is equal <valueOfDeposit>
-
 Examples:
-|cpfValue              | valueOfDeposit |messageValidation
-| 12345678910          | 1000	        | Operation completed with success
-| -- Select Account -- | 500	        | The CPF information is invalid
-| 12345678910          | 0   	        | The ammount is invalid for the operation
+| accountValue          | valueOfDeposit | messageValidation
+| 12345678910           | 100000	     | Operation completed with success
+| -- Select Account --  | 50000	         | The CPF information is invalid
+| 12345678910           | 0   	         | The ammount is invalid for the operation
 

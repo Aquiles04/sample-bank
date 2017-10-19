@@ -15,8 +15,8 @@ public class AccountInformationSteps  extends AbstractSteps{
     @Autowired
     private AccountInformationPage accountInformationPage;
 
-    @When("User has an $accountNumber")
-    public void fillCpf(@Named("accountNumber") String accountNumber) {
+    @When("User already has an $accountNumber")
+    public void fillAccountNumber(@Named("accountNumber") String accountNumber) {
         accountInformationPage.selectAccountInfo(accountNumber);
     }
 

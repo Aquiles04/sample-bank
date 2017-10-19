@@ -11,34 +11,35 @@ GivenStories: stories/Login.story
 GivenStories: stories/CreateAccount.story
 GivenStories: stories/Deposit.story
 
-Scenario: Open Withdraw Page
-When User clicks on menu Withdraw
-
 Scenario: Open Account Information Page
-When User has an <accountNumber>
+When User clicks on menu Account Information
+And User already has an <accountNumber>
 And clicks on get information button
-Then get the balance value of <balance>
+Then the system should show the message <messageValidation>
+Then get the balance value of <initialBalance>
+
+Examples:
+| accountNumber         | inicialBalance | messageValidation                         |
+| 12345678910           | 100000         | Operation completed with success          |
+
+
+Scenario: Open Withdraw Page
+When User clicks on menu Withdrawn
 
 Scenario:Withdraw
 
-Given that a customer has a <cpfValue>
+Given that a customer has a <accountNumber>
 When the account manager wants to make a withdraw with the value of <valueOfWithdraw>
-And <valueOfWithdraw> is equal to or less than amount of <balance>
+And <valueOfWithdraw> is equal to or less than amount of <initialBalance>
 And clicks on withdraw button
 Then system should show the message <messageValidation> for withdraw
-!--Then <valueOfWithdraw> is equal to or less than amount of <balance>
-
-!--Fazer
-!--Scenario:Check Balance
-!--Then get the balance value of <balance> and compare with value of <balance> before withdraw
-
 
 Examples:
-| cpfValue              | valueOfWithdraw  | balance       | messageValidation                         |
-| 12345678910           | 500	           | 1000	       | Operation completed with success          |
-| -- Select Account --  | 500              | 500           | The CPF information is invalid            |
-| 12345678910           | 1500             | 1000          | The ammount is invalid for the operation  |
-| 12345678910           | NULL             | 250           | The ammount is invalid for the operation  |
+| accountNumber         | valueOfWithdraw  | initialBalance  | messageValidation                         |
+| 12345678910           | 50000	           | 100000          | Operation completed with success          |
+| -- Select Account --  | 50000            | 50000           | The CPF information is invalid            |
+| 12345678910           | 150000           | 100000          | The ammount is invalid for the operation  |
+| 12345678910           | NULL             | 25000           | The ammount is invalid for the operation  |
 
 
 

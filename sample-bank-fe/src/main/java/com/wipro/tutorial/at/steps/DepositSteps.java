@@ -14,10 +14,10 @@ public class DepositSteps extends AbstractSteps{
     @Autowired
     private DepositPage depositPage;
 
-    @When("a cardholder has a $cpfValue")
-    public void userFillsCPF(@Named("cpfValue") String cpfValue ) {
-
-        depositPage.cpf(cpfValue);
+    @When("a cardholder has a $accountValue")
+    public void userFillsCPF(@Named("accountValue") String accountValue )
+    {
+        depositPage.cpf(accountValue);
     }
 
     @When("the account manager wants to make a deposit with the value of $valueOfDeposit")
@@ -25,6 +25,7 @@ public class DepositSteps extends AbstractSteps{
 
         depositPage.amount(valueOfDeposit);
     }
+
     @When("clicks on deposit button")
     public void depositButton() {
         depositPage.clickDeposit();

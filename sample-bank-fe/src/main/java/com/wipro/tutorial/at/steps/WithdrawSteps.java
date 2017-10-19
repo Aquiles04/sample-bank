@@ -19,10 +19,10 @@ public class WithdrawSteps extends AbstractSteps{
     @Autowired
     private AccountInformationPage accountInformationPage;
 
-    @Given("that a customer has a $cpfValue")
-    public void userFillsCPF(@Named("cpfValue") String cpfValue ) {
+    @Given("that a customer has a $accountNumber")
+    public void userFillsCPF(@Named("accountNumber") String accountNumber ) {
 
-        withdrawPage.cpf(cpfValue);
+        withdrawPage.accountNumber(accountNumber);
     }
 
     @When("the account manager wants to make a withdraw with the value of $valueOfWithdraw")
@@ -31,17 +31,16 @@ public class WithdrawSteps extends AbstractSteps{
         withdrawPage.amount(valueOfWithdraw);
     }
 
-    // Meio confuso aqui como fazer a validação ...
-    @When("$valueOfWithdraw is equal to or less than amount of $balanceAmount")
-    public void withdrawButton(@Named("valueOfWithdraw") String valueOfWithdraw, @Named("balanceAmount") String balanceAmount) {
+    @When("$valueOfWithdraw is equal to or less than amount of $initialBalance")
+    public void withdrawButton(@Named("valueOfWithdraw") String valueOfWithdraw, @Named("initialBalance") String initialBalance) {
 
         double valueWithdraw = Double.parseDouble(valueOfWithdraw);
-        double valueBalance = Double.parseDouble(balanceAmount);
+        double valueBalance = Double.parseDouble(initialBalance);
 
         if(valueWithdraw <= valueBalance)
         {
             withdrawPage.amount(valueOfWithdraw);
-            accountInformationPage.getBalanceInfo(balanceAmount);
+            accountInformationPage.getBalanceInfo(initialBalance);
         }
         else
         {
