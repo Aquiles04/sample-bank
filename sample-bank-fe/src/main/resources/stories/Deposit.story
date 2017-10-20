@@ -24,4 +24,5 @@ Examples:
 | 12345678910           | 100000	     | Operation completed with success
 | -- Select Account --  | 50000	         | The CPF information is invalid
 | 12345678910           | 0   	         | The ammount is invalid for the operation
+| 98765432100           | 200000         | The ammount is invalid for the operation
 

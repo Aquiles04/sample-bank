@@ -17,4 +17,5 @@ public class HomePageSteps extends AbstractSteps {
 	public void clickOnMenu(@Named("menu") String menu) {
 		homePage.clickMenu(menu);
 	}
+
 }

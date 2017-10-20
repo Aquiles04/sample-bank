@@ -1,7 +1,6 @@
 package com.wipro.tutorial.at.steps;
 
 import com.wipro.tutorial.at.pages.TransferPage;
-import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
@@ -15,16 +14,12 @@ public class TransferSteps extends AbstractSteps{
     @Autowired
     private TransferPage transferPage;
 
-    @Given("that a cardholder has a valid account $accountNumber")
-    public void userFillsSourceAccount(@Named("accountNumber") String accountNumber ) {
+    @When("a cardholder has a valid account $accountNumber to make a transfer to a second $accountNumber2")
+    public void userFillsSourceAccount(@Named("accountNumber") String accountNumber, @Named("accountNumber2") String accountNumber2 ) {
 
-        transferPage.sourceAccount(accountNumber);
-    }
+        transferPage.fillSourceAccount(accountNumber);
+        transferPage.fillTargetAccount(accountNumber2);
 
-    @When("he wants to select a second account $accountNumber2 to make a transfer")
-    public void UserFillsTargetAccount(@Named("accountNumber2") String accountNumber2 ) {
-
-        transferPage.targetAccount(accountNumber2);
     }
 
     @When("the cardholder input the value of $valueOfTransfer")

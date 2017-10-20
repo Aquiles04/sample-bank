@@ -8,10 +8,10 @@ import org.openqa.selenium.support.ui.Select;
 @PageObject
 public class TransferPage extends AbstractPage {
 
-    @FindBy(id="sourceAccount")
+    @FindBy(id = "sourceAccount")
     private WebElement dropdownSelectSourceAccount;
 
-    @FindBy(id="targetAccount")
+    @FindBy(id = "targetAccount")
     private WebElement dropdownSelectTargetAccount;
 
     @FindBy(id = "ammount")
@@ -23,14 +23,14 @@ public class TransferPage extends AbstractPage {
     @FindBy (id = "sb-return-message")
     private WebElement returnMsg;
 
-    public TransferPage sourceAccount (String sourceAccount) {
+    public TransferPage fillSourceAccount (String sourceAccount) {
 
         Select dropdown = new Select(dropdownSelectSourceAccount);
         dropdown.selectByVisibleText(sourceAccount);
         return this;
     }
 
-    public TransferPage targetAccount (String targetAccount) {
+    public TransferPage fillTargetAccount (String targetAccount) {
 
         Select dropdown = new Select(dropdownSelectTargetAccount);
         dropdown.selectByVisibleText(targetAccount);
